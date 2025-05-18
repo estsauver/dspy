@@ -43,6 +43,8 @@ class UsageTracker:
                 else:
                     result[k] = result[k] or 0
                     result[k] += v if v else 0
+            else:
+                result[k] = dict(v) if isinstance(v, dict) else v
         return result
 
     def add_usage(self, lm: str, usage_entry: dict):
